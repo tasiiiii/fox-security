@@ -1,0 +1,19 @@
+{
+    "name": "tasiiiii/fox-security",
+    "description": "Library for checking password strength [One day]",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tasiiiii\\FoxSecurity\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Artem Tyutnev",
+            "email": "tasiiiii.net@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
