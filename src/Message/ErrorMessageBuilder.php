@@ -4,6 +4,7 @@ namespace Tasiiiii\FoxSecurity\Message;
 
 use ReflectionClass;
 use ReflectionException;
+use Tasiiiii\FoxSecurity\Rule\LengthRule;
 use Tasiiiii\FoxSecurity\Rule\RuleInterface;
 
 class ErrorMessageBuilder
@@ -28,12 +29,12 @@ class ErrorMessageBuilder
 
         $properties = $reflection->getProperties();
         foreach ($matches as $match) {
-            $propertyName = substr($match, 0 - 1);
-            $propertyName = trim(substr($propertyName, 1, -1));
+            $propertyName = substr($match, 0, -2);
+            $propertyName = trim(substr($propertyName, 2));
 
             foreach ($properties as $property) {
                 if ($property->name === $propertyName) {
-                    $value        = $reflection->getProperty($propertyName)->getValue($rule);
+                    $value = $reflection->getProperty($propertyName)->getValue($rule);
 
                     if (is_array($value)) {
                         $value = implode(' ', $value);

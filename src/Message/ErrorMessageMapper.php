@@ -12,12 +12,12 @@ class ErrorMessageMapper
     private array $defaultMapper = [
         LengthRule::class           => 'Минимальная длина пароля - {{ minLength }}',
         EqualRule::class            => 'Пароль уязвим для подбора',
-        SameWithOtherRule::class    => 'Пароль содержит прочие похожие данные',
+        SameWithOtherRule::class    => 'Пароль содержит похожие данные',
         SpecialCharacterRule::class => 'Пароль не включает специальные символы - {{ requiredCharacters }}'
     ];
 
     public function getByRule(string $rule): string
     {
-        return $defaultError[$rule] ?? 'Пароль не является надежным';
+        return $this->defaultMapper[$rule] ?? 'Пароль не является надежным';
     }
 }

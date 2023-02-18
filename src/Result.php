@@ -36,6 +36,6 @@ class Result implements ResultInterface
 
     public function isValid(): bool
     {
-        return $this->priorityAccumulation >= RulePriorityEnum::High->value;
+        return $this->priorityAccumulation <= RulePriorityEnum::High->value;
     }
 }
