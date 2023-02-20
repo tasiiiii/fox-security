@@ -9,9 +9,9 @@ class SpecialCharacterRule implements RuleInterface
     )
     {}
 
-    public function getPriority(): int
+    public function getDangerLevel(): int
     {
-        return RulePriorityEnum::Medium->value;
+        return RuleDangerLevelEnum::Medium->value;
     }
 
     public function execute(string $password): bool

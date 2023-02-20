@@ -4,7 +4,7 @@ namespace Tasiiiii\FoxSecurity\Contract;
 
 interface ResultInterface
 {
-    public function getPriorityAccumulation(): int;
+    public function getDangerLevelAccumulation(): int;
 
     /**
      * @return string[]

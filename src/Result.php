@@ -3,21 +3,21 @@
 namespace Tasiiiii\FoxSecurity;
 
 use Tasiiiii\FoxSecurity\Contract\ResultInterface;
-use Tasiiiii\FoxSecurity\Rule\RulePriorityEnum;
+use Tasiiiii\FoxSecurity\Rule\RuleDangerLevelEnum;
 
 class Result implements ResultInterface
 {
-    private int   $priorityAccumulation = 0;
-    private array $errors               = [];
+    private int   $dangerLevelAccumulation = 0;
+    private array $errors                  = [];
 
-    public function getPriorityAccumulation(): int
+    public function getDangerLevelAccumulation(): int
     {
-        return $this->priorityAccumulation;
+        return $this->dangerLevelAccumulation;
     }
 
-    public function addPriority(int $priority): self
+    public function addDanger(int $dangerLevel): self
     {
-        $this->priorityAccumulation += $priority;
+        $this->dangerLevelAccumulation += $dangerLevel;
 
         return $this;
     }
@@ -36,6 +36,6 @@ class Result implements ResultInterface
 
     public function isValid(): bool
     {
-        return $this->priorityAccumulation <= RulePriorityEnum::High->value;
+        return $this->dangerLevelAccumulation <= RuleDangerLevelEnum::High->value;
     }
 }

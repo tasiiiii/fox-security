@@ -2,7 +2,7 @@
 
 namespace Tasiiiii\FoxSecurity\Rule;
 
-enum RulePriorityEnum: int
+enum RuleDangerLevelEnum: int
 {
     case High   = 100;
     case Medium = 35;

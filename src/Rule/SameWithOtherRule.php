@@ -9,9 +9,9 @@ class SameWithOtherRule implements RuleInterface
     )
     {}
 
-    public function getPriority(): int
+    public function getDangerLevel(): int
     {
-        return RulePriorityEnum::High->value;
+        return RuleDangerLevelEnum::High->value;
     }
 
     public function execute(string $password): bool
