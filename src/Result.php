@@ -3,7 +3,6 @@
 namespace Tasiiiii\FoxSecurity;
 
 use Tasiiiii\FoxSecurity\Contract\ResultInterface;
-use Tasiiiii\FoxSecurity\Rule\RuleDangerLevelEnum;
 
 class Result implements ResultInterface
 {
@@ -15,7 +14,7 @@ class Result implements ResultInterface
         return $this->dangerLevelAccumulation;
     }
 
-    public function addDanger(int $dangerLevel): self
+    public function addDangerLevel(int $dangerLevel): self
     {
         $this->dangerLevelAccumulation += $dangerLevel;
 
@@ -36,6 +35,6 @@ class Result implements ResultInterface
 
     public function isValid(): bool
     {
-        return $this->dangerLevelAccumulation <= RuleDangerLevelEnum::High->value;
+        return $this->dangerLevelAccumulation < ConfigContainer::get()->getValue('validLimit');
     }
 }

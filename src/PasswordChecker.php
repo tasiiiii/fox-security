@@ -24,7 +24,7 @@ class PasswordChecker
 
         foreach ($ruleCollection->getAll() as $rule) {
             if (!$rule->execute($password)) {
-                $result->addDanger($rule->getDangerLevel());
+                $result->addDangerLevel($rule->getDangerLevel());
                 $result->addError($this->errorMessageBuilder->build($rule));
             }
         }
