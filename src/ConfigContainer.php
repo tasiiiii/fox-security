@@ -7,7 +7,7 @@ use Exception;
 class ConfigContainer
 {
     private static ?ConfigContainer $instance   = null;
-    private static string           $configPath = __DIR__ . '/config/fox-security.php';
+    private static string           $configPath = __DIR__ . '/../config/fox-security.php';
 
     private array $config;
 
